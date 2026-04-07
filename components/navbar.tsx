@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -10,7 +11,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <svg
               width="18"
@@ -35,7 +36,7 @@ export function Navbar() {
           <span className="text-lg font-bold font-display tracking-tight text-foreground">
             PrismIQ
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
@@ -45,6 +46,12 @@ export function Navbar() {
           >
             Features
           </a>
+          <Link
+            href="/pilot"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Free Pilot
+          </Link>
           <a
             href="#contact"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -75,6 +82,13 @@ export function Navbar() {
             >
               Features
             </a>
+            <Link
+              href="/pilot"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => setMobileOpen(false)}
+            >
+              Free Pilot
+            </Link>
             <a
               href="#contact"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
