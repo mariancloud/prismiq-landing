@@ -2,7 +2,11 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/20 py-12">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center gap-6 text-center">
+          <p className="text-lg font-medium text-foreground italic">
+            Every denial is a story. PrismIQ writes the rebuttal.
+          </p>
+          
           <div className="flex items-center gap-2">
             <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
               <svg
@@ -30,29 +34,8 @@ export function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-8">
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Terms
-            </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Security
-            </a>
-          </div>
-
           <p className="text-sm text-muted-foreground">
-            {"© 2026 PrismIQ. All rights reserved."}
+            {"© 2026 PrismIQ Labs. All rights reserved."}
           </p>
         </div>
       </div>

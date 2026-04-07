@@ -1,64 +1,90 @@
-import { Search, ShieldAlert, Scale } from "lucide-react"
+import { Upload, Brain, FileText, Clock, Building2, Shield } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
-const features = [
+const steps = [
   {
-    icon: Search,
-    title: "Instant Policy Lookup",
+    number: "01",
+    title: "Connect your ERA/835 feed",
     description:
-      "Search any payer's requirements in real-time. Get the exact coverage criteria, documentation requirements, and authorization rules you need — all in one place.",
-    accent: "bg-primary/10 text-primary",
+      "Upload denied claims or connect your ERA/835 feed directly. We accept all major clearinghouse formats.",
+    icon: Upload,
   },
   {
-    icon: ShieldAlert,
-    title: "Denial Intelligence",
+    number: "02",
+    title: "PrismIQ analyzes payer policy",
     description:
-      "Understand why claims were denied and what to do next. Our system analyzes denial patterns and surfaces actionable insights to maximize your recovery rate.",
-    accent: "bg-accent/10 text-accent",
+      "Our AI cross-references the denial reason code against current payer policy language and medical necessity criteria.",
+    icon: Brain,
   },
   {
-    icon: Scale,
-    title: "Precedent Tracking",
+    number: "03",
+    title: "Receive your appeal letter",
     description:
-      "Learn from past appeals and decisions. Build a living knowledge base of precedents that helps your team write stronger appeals backed by historical outcomes.",
-    accent: "bg-primary/10 text-primary",
+      "You receive a policy-cited, ready-to-send appeal letter within 24 hours. No templates — constructed arguments.",
+    icon: FileText,
+  },
+]
+
+const highlights = [
+  {
+    icon: Building2,
+    text: "Built for orthopedic + spine billing teams",
+  },
+  {
+    icon: Clock,
+    text: "24-hour appeal turnaround",
+  },
+  {
+    icon: Shield,
+    text: "Anthem, UHC, Aetna policy coverage",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-20 md:py-32">
+    <section id="how-it-works" className="py-20 md:py-32 bg-secondary/30">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-            Features
-          </p>
           <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Everything your billing team needs
+            How It Works
           </h2>
           <p className="mt-4 text-pretty text-muted-foreground leading-relaxed">
-            PrismIQ centralizes payer intelligence so your team spends less time
-            searching and more time getting claims paid.
+            From denied claim to appeal letter in three simple steps.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {features.map((feature) => (
+        <div className="grid gap-8 md:grid-cols-3">
+          {steps.map((step) => (
             <div
-              key={feature.title}
-              className="group relative rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+              key={step.number}
+              className="relative rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
             >
-              <div
-                className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg ${feature.accent}`}
-              >
-                <feature.icon className="h-6 w-6" />
+              <span className="absolute -top-4 left-8 font-display text-5xl font-bold text-primary/10">
+                {step.number}
+              </span>
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <step.icon className="h-6 w-6" />
               </div>
               <h3 className="mb-3 font-display text-xl font-semibold text-foreground">
-                {feature.title}
+                {step.title}
               </h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
+                {step.description}
               </p>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+          {highlights.map((highlight) => (
+            <Badge
+              key={highlight.text}
+              variant="secondary"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium"
+            >
+              <highlight.icon className="h-4 w-4 text-primary" />
+              {highlight.text}
+            </Badge>
           ))}
         </div>
       </div>

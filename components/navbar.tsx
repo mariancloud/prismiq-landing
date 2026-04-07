@@ -41,10 +41,10 @@ export function Navbar() {
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
           <a
-            href="#features"
+            href="#how-it-works"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Features
+            How It Works
           </a>
           <Link
             href="/pilot"
@@ -76,11 +76,11 @@ export function Navbar() {
         <div className="border-t border-border bg-background px-6 pb-6 pt-4 md:hidden">
           <div className="flex flex-col gap-4">
             <a
-              href="#features"
+              href="#how-it-works"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
-              Features
+              How It Works
             </a>
             <Link
               href="/pilot"
