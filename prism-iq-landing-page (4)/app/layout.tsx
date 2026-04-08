@@ -10,9 +10,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "PrismIQ - Policy Intelligence for Medical Billing Teams",
+  title: "PrismIQ | AI-Powered Denial Management",
   description:
-    "Look up payer requirements in seconds, not hours. PrismIQ delivers instant policy lookup, denial intelligence, and precedent tracking for medical billing teams.",
+    "Overturn denials with policy-level precision. PrismIQ analyzes denied claims and generates ready-to-send appeal letters for orthopedic and spine billing teams.",
 }
 
 export const viewport: Viewport = {

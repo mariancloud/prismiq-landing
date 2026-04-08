@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Send, CircleCheck } from "lucide-react"
+import { Send, CircleCheck, Shield, FileCheck, Building } from "lucide-react"
+
+const badges = [
+  { icon: Shield, label: "SOC 2" },
+  { icon: FileCheck, label: "HIPAA" },
+  { icon: Building, label: "BAA Ready" },
+]
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
@@ -16,18 +22,15 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl">
           <div className="mb-12 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-              Get in Touch
-            </p>
             <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Ready to transform your billing workflow?
+              Request a Pilot
             </h2>
             <p className="mt-4 text-pretty text-muted-foreground leading-relaxed">
-              Tell us about your team and we will set you up with early access.
+              Share a sample of your Anthem denied claims. We&apos;ll show you exactly what was recoverable — and return a ready-to-send appeal for your hardest denial within 24 hours.
             </p>
           </div>
 
@@ -40,8 +43,7 @@ export function ContactSection() {
                 Thank you for your interest
               </h3>
               <p className="max-w-md text-sm text-muted-foreground leading-relaxed">
-                We have received your message and will be in touch shortly to
-                discuss how PrismIQ can help your billing team.
+                We have received your request and will be in touch within 24 hours with your appeal analysis.
               </p>
             </div>
           ) : (
@@ -51,7 +53,7 @@ export function ContactSection() {
             >
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="name">Full Name</Label>
+                  <Label htmlFor="name">Name *</Label>
                   <Input
                     id="name"
                     placeholder="Jane Smith"
@@ -59,41 +61,56 @@ export function ContactSection() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="email">Work Email</Label>
+                  <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="jane@hospital.org"
+                    placeholder="jane@practice.com"
                     required
                   />
                 </div>
               </div>
 
               <div className="mt-6 flex flex-col gap-2">
-                <Label htmlFor="organization">Organization</Label>
+                <Label htmlFor="practice">Practice Name *</Label>
                 <Input
-                  id="organization"
-                  placeholder="Acme Health Systems"
+                  id="practice"
+                  placeholder="Orthopedic Associates of..."
+                  required
                 />
               </div>
 
               <div className="mt-6 flex flex-col gap-2">
-                <Label htmlFor="message">
-                  Tell us about your billing challenges
+                <Label htmlFor="volume">
+                  Tell us about your denial volume *
                 </Label>
                 <Textarea
-                  id="message"
-                  placeholder="What payer-related challenges does your team face on a daily basis?"
+                  id="volume"
+                  placeholder="How many denials do you process monthly? Which payers are most problematic?"
                   rows={4}
+                  required
                 />
               </div>
 
               <Button type="submit" size="lg" className="mt-8 w-full gap-2">
                 <Send className="h-4 w-4" />
-                Request Early Access
+                Request a Pilot
               </Button>
             </form>
           )}
+
+          {/* Compliance badges */}
+          <div className="mt-8 flex items-center justify-center gap-6">
+            {badges.map((badge) => (
+              <div
+                key={badge.label}
+                className="flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-2"
+              >
+                <badge.icon className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium text-muted-foreground">{badge.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

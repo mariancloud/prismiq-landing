@@ -43,15 +43,15 @@ export function Navbar() {
             href="#features"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Features
+            How It Works
           </a>
           <a
             href="#contact"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Contact
+            Request a Pilot
           </a>
-          <Button size="sm">Request Access</Button>
+          <Button size="sm">Request a Pilot</Button>
         </div>
 
         {/* Mobile toggle */}
@@ -73,17 +73,17 @@ export function Navbar() {
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
-              Features
+              How It Works
             </a>
             <a
               href="#contact"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               onClick={() => setMobileOpen(false)}
             >
-              Contact
+              Request a Pilot
             </a>
             <Button size="sm" className="w-full">
-              Request Access
+              Request a Pilot
             </Button>
           </div>
         </div>
