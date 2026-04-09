@@ -1,8 +1,7 @@
-export default function Page() {
+export default function Home() {
   return (
-    <iframe
-      src="/index.html"
-      style={{ width: "100%", height: "100vh", border: "none" }}
-    />
-  );
+    <main style={{background:'#0d1117', color:'white', minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
+      <h1>PrismIQ is live</h1>
+    </main>
+  )
 }
