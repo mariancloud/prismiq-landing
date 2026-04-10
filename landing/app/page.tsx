@@ -54,15 +54,15 @@ export default function Home() {
             width: 36, height: 36, borderRadius: 8,
             background: "#1c2230", display: "flex", alignItems: "center", justifyContent: "center"
           }}>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <polygon points="10,2 18,16 2,16" fill="none" stroke="url(#pg)" strokeWidth="1.5"/>
-              <defs>
-                <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#ff6b6b"/>
-                  <stop offset="50%" stopColor="#00d4aa"/>
-                  <stop offset="100%" stopColor="#4d96ff"/>
-                </linearGradient>
-              </defs>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <polygon points="16,3 29,26 3,26" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2"/>
+              <line x1="10" y1="16" x2="20" y2="16" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" strokeDasharray="2 2"/>
+              <line x1="20" y1="16" x2="28" y2="12" stroke="#ff6b6b" strokeWidth="1.2"/>
+              <line x1="20" y1="16" x2="28" y2="14" stroke="#ffd93d" strokeWidth="1.2"/>
+              <line x1="20" y1="16" x2="29" y2="16" stroke="#6bcb77" strokeWidth="1.2"/>
+              <line x1="20" y1="16" x2="28" y2="18" stroke="#4d96ff" strokeWidth="1.2"/>
+              <line x1="20" y1="16" x2="27" y2="20" stroke="#c77dff" strokeWidth="1.2"/>
+              <circle cx="20" cy="16" r="1.5" fill="white" opacity="0.6"/>
             </svg>
           </div>
           <span style={{ fontWeight: 600, fontSize: 18 }}>PrismIQ</span>
