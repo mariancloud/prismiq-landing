@@ -28,10 +28,18 @@ export default function Home() {
           .hero { grid-template-columns: 1fr !important; }
           .prism-beam { display: none; }
           .nav-tagline { display: none; }
+          .footer-items { flex-direction: column; gap: 12px !important; }
         }
       `}</style>
 
-      <div className="prism-beam" />
+      {/* Prism beam only over hero */}
+      <div style={{
+        position: "fixed", top: 0, left: "50%", transform: "translateX(-50%)",
+        width: 2, height: "100vh",
+        background: "linear-gradient(180deg, #ff6b6b 0%, #ffd93d 25%, #6bcb77 50%, #4d96ff 75%, #c77dff 100%)",
+        opacity: 0.5, pointerEvents: "none", zIndex: 0,
+        clipPath: "inset(0 0 50% 0)"
+      }} />
 
       {/* NAV */}
       <nav style={{
@@ -197,7 +205,7 @@ export default function Home() {
             {[
               { n: "01", icon: "↑", title: "Connect your ERA/835 feed", body: "Upload denied claims or connect your ERA/835 feed directly. We accept all major clearinghouse formats." },
               { n: "02", icon: "⌕", title: "PrismIQ analyzes payer policy", body: "Our AI cross-references the denial reason code against current payer policy language and medical necessity criteria." },
-              { n: "03", icon: "≡", title: "Receive your appeal letter", body: "You receive a policy-cited, ready-to-send appeal letter within 24 hours. No templates — constructed arguments." },
+              { n: "03", icon: "≡", title: "Receive your appeal letter", body: "You receive a policy-cited, ready-to-send appeal letter within 48 hours. No templates — constructed arguments." },
             ].map((step) => (
               <div key={step.n} style={{ background: "#1c2230", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: 28, position: "relative" }}>
                 <div style={{ position: "absolute", top: -14, left: 24, background: "#00d4aa", color: "#0d1117", fontSize: 12, fontWeight: 700, padding: "3px 10px", borderRadius: 6 }}>{step.n}</div>
@@ -211,11 +219,11 @@ export default function Home() {
       </section>
 
       {/* PILOT FORM */}
-      <section id="pilot" style={{ padding: "80px 48px", position: "relative", zIndex: 1 }}>
+      <section id="pilot" style={{ padding: "80px 48px", position: "relative", zIndex: 1, background: "#0d1117" }}>
         <div style={{ maxWidth: 640, margin: "0 auto" }}>
           <h2 style={{ fontFamily: "Lora, serif", fontSize: "clamp(28px, 3vw, 40px)", fontWeight: 600, textAlign: "center", marginBottom: 16 }}>Request a Pilot</h2>
           <p style={{ color: "#8b949e", textAlign: "center", marginBottom: 40, fontSize: 15, lineHeight: 1.7 }}>
-            Share a sample of your Anthem denied claims. We'll show you exactly what was recoverable — and return a ready-to-send appeal for your hardest denial within 24 hours.
+            Share a sample of your Anthem denied claims. We'll show you exactly what was recoverable — and return a ready-to-send appeal for your hardest denial within 48 hours.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -252,13 +260,49 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "20px 48px", display: "flex", justifyContent: "center", gap: 48, background: "#0d1117", position: "relative", zIndex: 1 }}>
-        {["Built for orthopedic + spine billing teams", "24-hour appeal turnaround", "Anthem, UHC, Aetna policy coverage"].map(item => (
-          <span key={item} style={{ fontSize: 13, color: "#586374", display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{ color: "#00d4aa" }}>✓</span> {item}
-          </span>
-        ))}
-      </div>
+      <footer style={{ background: "#070b10", position: "relative", zIndex: 1 }}>
+        {/* Footer stats bar */}
+        <div style={{
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          padding: "20px 48px",
+          display: "flex", justifyContent: "center", gap: 48, flexWrap: "wrap"
+        }}>
+          {["48-hour appeal turnaround", "Anthem, UHC, Aetna policy coverage"].map(item => (
+            <span key={item} style={{ fontSize: 13, color: "#586374", display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ color: "#00d4aa" }}>✓</span> {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Footer brand block */}
+        <div style={{ padding: "60px 48px 40px", textAlign: "center" }}>
+          <h2 style={{ fontFamily: "Lora, serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 600, marginBottom: 16 }}>PrismIQ</h2>
+          <p style={{ fontFamily: "Lora, serif", fontStyle: "italic", fontSize: 18, color: "#00d4aa", marginBottom: 8 }}>
+            We're here to make sure practices get every dollar back.
+          </p>
+          <p style={{ fontFamily: "Lora, serif", fontStyle: "italic", fontSize: 14, color: "#586374", marginBottom: 32 }}>
+            Denied claims are revenue. PrismIQ recovers it.
+          </p>
+
+          {/* Rainbow line */}
+          <div style={{
+            width: 200, height: 3, margin: "0 auto 32px",
+            background: "linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff)",
+            borderRadius: 2
+          }} />
+
+          <p style={{ fontSize: 13, color: "#586374", marginBottom: 16 }}>
+            prismiqlabs.ai · hello@prismiqlabs.ai
+          </p>
+          <div style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 16 }}>
+            {["Privacy Policy", "Terms of Service"].map(link => (
+              <a key={link} href="#" style={{ fontSize: 13, color: "#586374", textDecoration: "none" }}>{link}</a>
+            ))}
+          </div>
+          <p style={{ fontSize: 12, color: "#3a4150" }}>Confidential · 2026</p>
+        </div>
+      </footer>
     </div>
   );
 }
